@@ -14,4 +14,5 @@ https://www.youtube.com/watch?v=O68O7yUK_9c
 http://www.appcoda.com/ios-charts-api-tutorial/
 
 Link to slide deck with a brief explanation of the app:
+https://docs.google.com/presentation/d/1XwRVpuelTCDVgN1aaeUozig6fTSCsmDoKLV1TtYo_K0/edit?usp=sharing
 
