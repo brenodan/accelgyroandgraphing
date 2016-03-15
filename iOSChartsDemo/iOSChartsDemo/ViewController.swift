@@ -60,31 +60,6 @@ class ViewController: UIViewController {
         xAccelLabel?.text = "\(roundX).2fg"
         yAccelLabel?.text = "\(roundY).2fg"
         zAccelLabel?.text = "\(roundZ).2fg"
-
-        
-        
-        /*if fabs(acceleration.x) > fabs(currentMaxAccelX)
-        {
-        currentMaxAccelX = acceleration.x
-        }
-        
-        yAccelLabel?.text = "\(acceleration.y).2fg"
-        if fabs(acceleration.y) > fabs(currentMaxAccelY)
-        {
-        currentMaxAccelY = acceleration.y
-        }
-        
-        zAccelLabel?.text = "\(acceleration.z).2fg"
-        if fabs(acceleration.z) > fabs(currentMaxAccelZ)
-        {
-        currentMaxAccelZ = acceleration.z
-        }
-        
-        
-        xMaxAccelLabel?.text = "\(currentMaxAccelX).2f"
-        yMaxAccelLabel?.text = "\(currentMaxAccelY).2f"
-        zMaxAccelLabel?.text = "\(currentMaxAccelZ).2f"
-        */
         
     }
     
@@ -98,34 +73,6 @@ class ViewController: UIViewController {
         xRotLabel?.text = "\(roundX).2fr/s"
         yRotLabel?.text = "\(roundY).2fr/s"
         zRotLabel?.text = "\(roundZ).2fr/s"
-
-        
-        /*
-        if fabs(rotation.x) > fabs(currentMaxRotX)
-        {
-        currentMaxRotX = rotation.x
-        }
-        
-        yRotLabel?.text = "\(rotation.y).2fr/s"
-        if fabs(rotation.y) > fabs(currentMaxRotY)
-        {
-        currentMaxRotY = rotation.y
-        }
-        
-        zRotLabel?.text = "\(rotation.z).2fr/s"
-        if fabs(rotation.z) > fabs(currentMaxRotZ)
-        {
-        currentMaxRotZ = rotation.z
-        }
-        
-        
-        
-        
-        xMaxRotLabel?.text = "\(currentMaxRotX).2f"
-        yMaxRotLabel?.text = "\(currentMaxRotY).2f"
-        zMaxRotLabel?.text = "\(currentMaxRotZ).2f"
-        
-        */
         
     }
     

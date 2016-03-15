@@ -14,14 +14,9 @@ import CoreLocation
 
 class BarChartViewController: UIViewController {
 
-    var unitsSold = [20.0, 4.0, 6.0, 3.0, 12.0, 16.0]
-    @IBOutlet weak var zRotLabel: UILabel!
-    @IBOutlet weak var yRotLabel: UILabel!
-    @IBOutlet weak var xRotLabel: UILabel!
-    @IBOutlet weak var zAccelLabel: UILabel!
-    @IBOutlet weak var yAccelLabel: UILabel!
-    @IBOutlet weak var xAccelLabel: UILabel!
-    var months: [String]!
+    var graphData = [0.0,0.0,0.0,0.0,0.0,0.0]
+    var graphLabels: [String]!
+    
     @IBOutlet var barChartView: BarChartView!
     
     var movementManager = CMMotionManager()
@@ -54,14 +49,7 @@ class BarChartViewController: UIViewController {
         barChartView.noDataText = "You need to provide data for the chart."
         // Do any additional setup after loading the view, typically from a nib.
         
-        months = ["X Accel", "Y Accel", "Z Accel", "X rot", "Y rot", "Z rot"]
-        
-        
-        
-        
-        
-        
-        
+        graphLabels = ["X Accel", "Y Accel", "Z Accel", "X rot", "Y rot", "Z rot"]
     }
 
     
@@ -75,51 +63,34 @@ class BarChartViewController: UIViewController {
             dataEntries.append(dataEntry)
         }
         
-        let chartDataSet = BarChartDataSet(yVals: dataEntries, label: "Units Sold")
-        let chartData = BarChartData(xVals: months, dataSet: chartDataSet)
+        let chartDataSet = BarChartDataSet(yVals: dataEntries, label: "g")
+        let chartData = BarChartData(xVals: graphLabels, dataSet: chartDataSet)
         barChartView.data = chartData
         ChartColorTemplates.vordiplom()
-        //barChartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
+
         let ll = ChartLimitLine(limit: 0.0, label: "Zero")
         barChartView.rightAxis.addLimitLine(ll)
-        
-        
         
     }
     
     
     func outputAccData(acceleration: CMAcceleration){
-        
-        xAccelLabel?.text = "\(acceleration.x).2fg"
-      
-        
-        yAccelLabel?.text = "\(acceleration.y).2fg"
-     
-        
-        zAccelLabel?.text = "\(acceleration.z).2fg"
-       
-        unitsSold[0] = acceleration.x * 100
-        unitsSold[1] = acceleration.y * 100
-        unitsSold[2] = acceleration.z * 100
+
+        graphData[0] = acceleration.x * 100
+        graphData[1] = acceleration.y * 100
+        graphData[2] = acceleration.z * 100
     
-        print(unitsSold[0])
-        setChart(months, values: unitsSold)
+        setChart(graphLabels, values: graphData)
         
     }
     
     func outputRotData(rotation: CMRotationRate){
+
+        graphData[3] = rotation.x * 100
+        graphData[4] = rotation.y * 100
+        graphData[5] = rotation.z * 100
         
-        
-        xRotLabel?.text = "\(rotation.x).2fr/s"
-      
-        yRotLabel?.text = "\(rotation.y).2fr/s"
-     
-        zRotLabel?.text = "\(rotation.z).2fr/s"
-      
-        unitsSold[3] = rotation.x * 100
-        unitsSold[4] = rotation.y * 100
-        unitsSold[5] = rotation.z * 100
-        setChart(months, values: unitsSold)
+        setChart(graphLabels, values: graphData)
         
     }
 
